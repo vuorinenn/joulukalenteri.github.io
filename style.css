@@ -1,41 +1,92 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #e8f0f9;
+  font-family: 'Mountains of Christmas', serif;
+  background: linear-gradient(#0b3d0b, #001a00);
   text-align: center;
+  padding-top: 30px;
+}
+
+h1 {
+  font-size: 48px;
+  color: #ffd34a;
+  margin: 0 0 20px;
+}
+
+.kalenteri-wrapper {
+  position: relative;
+  width: 900px;
+  max-width: 95vw;
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.taustakuva {
+  width: 100%;
+  display: block;
 }
 
 #kalenteri {
+  position: absolute;
+  top: 12%;
+  left: 11%;
+  right: 11%;
+  bottom: 15%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 10px;
-  max-width: 600px;
-  margin: 20px auto;
+  gap: 20px;
 }
 
 .ovi {
-  background: #d32f2f;
-  color: white;
-  padding: 20px;
+  background: transparent;
+  color: #ffd700;
+  border: 2px dashed rgba(0, 0, 0, 0.45);
   border-radius: 8px;
+  font-size: 30px;
+  font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  transition: transform 0.2s;
+  transition: border-color 0.2s ease;
 }
 
 .ovi:hover {
-  transform: scale(1.05);
+  border-color: rgba(0, 0, 0, 0.85);
 }
 
 .ovi.open {
-  background: #4caf50;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(3px);
+  z-index: 10;
 }
 
-.content {
-  display: none;
-  margin-top: 10px;
-  color: black;
+.ovi.open span {
+  opacity: 0;
 }
 
 .ovi.open .content {
-  display: block;
+  opacity: 1;
+  transform: scale(1);
+  z-index: 11;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  color: #fffbea;
+  font-size: 14px;
+  line-height: 1.3;
+  padding: 10px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: -1;
 }
