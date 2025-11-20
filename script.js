@@ -1,33 +1,49 @@
 const viestit = [
-    "1. Hyvää joulukuun ensimmäistä päivää!",
-    "2. Muista syödä pipareita tänään!",
-    "3. Joululaulut tuovat iloa päivääsi.",
-    "4. On aika koristella joulukuusi!",
-    "5. Joululahjojen ostaminen on hauskaa!",
-    "6. Nauti kuumaa kaakaota kylmänä päivänä.",
-    "7. Tee joulukortteja ystäville ja perheelle.",
-    "8. Katso jouluelokuva tänään.",
-    "9. Leivo joulutorttuja yhdessä perheen kanssa.",
-    "10. Joulun taika on kaikkialla ympärillämme.",
-    "11. Muista antaa aikaa läheisillesi.",
-    "12. Joulun odotus tekee sydämestä lämpimän.",
-    "13. Käy joulumarkkinoilla nauttimassa tunnelmasta.",
-    "14. Joulun värit tuovat iloa silmille.",
-    "15. Tee hyvää ja auta tarvitsevia.",
-    "16. Joulun tuoksut täyttävät kodin.",
-    "17. Valmista jouluateria yhdessä perheen kanssa.",
-    "18. Joulun aika on antamisen aikaa.",
-    "19. Nauti talvisista maisemista ulkona.",
-    "20. Joulun valot loistavat pimeydessä.",
-    "21. Muista rentoutua ja nauttia joulun tunnelmasta.",
-    "22. Joulupukki on matkalla!",
-    "23. Valmistaudu jouluaattoon innolla.",
-    "24. Hyvää joulua ja onnellista uutta vuotta!"
+  "Hyvää joulukuun ensimmäistä päivää!",
+  "Muista syödä pipareita tänään!",
+  "Joululaulut tuovat iloa päivääsi!",
+  "On aika koristella joulukuusi!",
+  "Joululahjojen ostaminen on hauskaa!",
+  "Nauti kuumaa kaakaota kylmänä päivänä!",
+  "Tee joulukortteja ystäville!",
+  "Katso jouluelokuva tänään!",
+  "Leivo joulutorttuja yhdessä perheen kanssa!",
+  "Joulun taika on kaikkialla!",
+  "Muista antaa aikaa läheisillesi!",
+  "Joulun odotus lämmittää mieltä!",
+  "Käy joulumarkkinoilla!",
+  "Joulun värit piristävät!",
+  "Auta tarvitsevia!",
+  "Joulun tuoksut täyttävät kodin!",
+  "Valmista jouluateria yhdessä!",
+  "Joulun aika on antamisen aikaa!",
+  "Nauti talvimaisemista!",
+  "Joulun valot loistavat!",
+  "Rentoudu ja nauti!",
+  "Joulupukki on matkalla!",
+  "Valmistaudu jouluaattoon!",
+  "Hyvää joulua ja uutta vuotta!"
 ];
 
 const kalenteri = document.getElementById("kalenteri");
 
 for (let i = 1; i <= 24; i++) {
-    const ovi = document.createElement("div");
-    ovi.className = 'ovi';
+  const ovi = document.createElement("div");
+  ovi.className = "ovi";
+
+  const numero = document.createElement("span");
+  numero.textContent = i;
+
+  const content = document.createElement("div");
+  content.className = "content";
+  content.textContent = viestit[i - 1];
+
+  ovi.appendChild(numero);
+  ovi.appendChild(content);
+
+  ovi.onclick = () => {
+    ovi.classList.add("open");
+  };
+
+  kalenteri.appendChild(ovi);
 }
