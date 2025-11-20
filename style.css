@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #e8f0f9;
+  text-align: center;
+}
+
+#kalenteri {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.ovi {
+  background: #d32f2f;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.ovi:hover {
+  transform: scale(1.05);
+}
+
+.ovi.open {
+  background: #4caf50;
+}
+
+.content {
+  display: none;
+  margin-top: 10px;
+  color: black;
+}
+
+.ovi.open .content {
+  display: block;
+}
